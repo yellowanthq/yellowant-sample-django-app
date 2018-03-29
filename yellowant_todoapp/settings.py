@@ -15,6 +15,20 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+### YellowAnt specific settings ###
+
+# Numerical ID generated when you register your application through the YA developer console
+YA_APP_ID = os.environ.get("YA_APP_ID", 198)
+# Client ID generated from the YA developer console. Required to identify requests from this application to YA
+YA_CLIENT_ID = os.environ.get("YA_CLIENT_ID", "D50pwTXon9VSvMFnwVkUrY0qZBHICuuByr43CEAK")
+# Client secret generated from the YA developer console. Required to identify requests from this application to YA
+YA_CLIENT_SECRET = os.environ.get("YA_CLIENT_SECRET", "61VCXlM2F3nEqbKisDvT4coh7zZyXr8gR3Mwd4GY5CwWr0wvNEdNp3pr5CskxDdVrwjx08K6JHXnOaLeMnfJnS4buQMYmTrMY2U98MMAgVfaP12gb3BdVcMTnEosntzT")
+# Verification token generated from the YA developer console. This application can verify requests from YA as they will
+# carry the verification token
+YA_VERIFICATION_TOKEN = os.environ.get("YA_VERIFICATION_TOKEN", "FLvwvIvxhauF4t3Hme0rTEWiSbmqWIdinleYJYL8rYqxVfeevDckGQkF4F5wJuObIAHBhWlz2UDTdpgP6GalcMTNjDmIC02y8HQ3T6gKwQZuT2qFk6kgkk69ASxgkNd0")
+
+### END YellowAnt specific settings ###
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
