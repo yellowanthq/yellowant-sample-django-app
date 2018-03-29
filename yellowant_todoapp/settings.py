@@ -25,7 +25,8 @@ SECRET_KEY = '#x9q+c*t9$=buk$i@m&6e+k@m(q@uds0gd=9=3cej6u#_u=m*%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# SECURITY WARNING: remove wildcard condition from ALLOWED_HOSTS
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
