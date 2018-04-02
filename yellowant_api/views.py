@@ -1,5 +1,5 @@
-import uuid
-from django.http import HttpResponseRedirect
+import json, uuid
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotAllowed
 from django.contrib.auth.models import User
 from django.conf import settings
 
@@ -7,6 +7,7 @@ from django.urls import reverse
 from yellowant import YellowAnt
 
 from .models import YellowAntRedirectState, UserIntegration
+from yellowant_command_center.command_center import CommandCenter
 
 
 def request_yellowant_oauth_code(request):
@@ -87,4 +88,31 @@ def yellowant_oauth_redirect(request):
 
 
 def yellowant_api(request):
-    pass
+    """Receive user commands from YA"""
+    data = json.loads(request.POST.get("data"))
+
+    # verify whether the request is genuinely from YA with the help of the verification token
+    if data["verification_token"] != settings.YA_VERIFICATION_TOKEN:
+        return HttpResponseNotAllowed("Insufficient permissions.")
+    
+    # check whether the request is a user command, or a webhook subscription notice from YA
+    if data["event_type"] == "command":
+        # request is a user command
+
+        # retrieve the user integration id to identify the user
+        yellowant_integration_id = data.get("application")
+
+        # invoke name of the command being called by the user
+        command_name = data.get("function_name")
+
+        # any arguments that might be present as an input for the command
+        args = data.get("args")
+
+        # create a YA Message object with the help of the YA SDK
+        message = CommandCenter(yellowant_integration_id, command_name, args).parse()
+
+        # return YA Message object back to YA
+        return HttpResponse(message)
+    elif data["event_type"] == "webhook_subscription":
+        # request is a webhook subscription notice
+        pass
