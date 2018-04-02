@@ -4,10 +4,35 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
+  <h3>Hi {{ user.username }}!</h3>
+
+  {% if user_integrations %}
+    <table>
+      <thead><tr>
+        <td>Team Subdomain</td>
+        <td>Integration ID</td>
+        <td>Invoke Name</td>
+      </tr></thead>
+      <tbody>
+        {% for user_integration in user_integrations %}
+        <tr>
+          <td>{{ user_integration.yellowant_user_id }}</td>
+          <td>{{ user_integration.yellowant_integration_id }}</td>
+          <td>{{ user_integration.yellowant_integration_invoke_name }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <div>You don't have any integrations yet.</div>
+  {% endif %}
+
+  <p><a href="/create-new-integration/"><button>Create New Integration</button></a></p>
+    
   <p><a href="{% url 'logout' %}">logout</a></p>
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>
 {% endif %}
+
 {% endblock %}

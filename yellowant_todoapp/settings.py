@@ -16,6 +16,14 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 ### YellowAnt specific settings ###
+# URL to obtain oauth2 access for a YA user
+YA_OAUTH_URL = "http://www.spendse.com/api/oauth2/authorize/"
+# URL to receive oauth2 codes from YA for user authentication. As a developer, you need to provide this URL in the YA
+# developer console so that YA knows exactly where to send the oauth2 codes.
+YA_REDIRECT_URL = "http://localhost:8000/yellowant-oauth-redirect/"
+
+os.environ["YELLOWANT_API_URL"] = "http://api.spendse.com/api/%s"
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 # Numerical ID generated when you register your application through the YA developer console
 YA_APP_ID = os.environ.get("YA_APP_ID", 198)
