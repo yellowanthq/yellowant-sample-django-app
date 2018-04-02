@@ -33,22 +33,22 @@ python manage.py migrate
 
 2. Click on the button "Create New Application"
 
-3. Fill the form and click "Create Application":
+3. Fill the form and click on "Create Application":
     - Display Name: A human readable display name for the application.
     - Invoke Name: A simple single word which users can use to control this app.
-    - Short Description: A human readable short description
+    - Short Description: A human readable short description.
 
 4. After the application is created you will be at the application overview page. You need update the application with more information and click on "Update Application".
     - API URL: The endpoint through which YellowAnt will communicate with this app.
     - Installation Website: The URL of your app where users will be able to begin integrating their YellowAnt accounts with this app.
     - Redirect URL: The endpoint at which YellowAnt will send the OAuth codes for user authentication.
     - Icon URL: A URI which points to an icon image for this app.
-    - Creator Email: Your Email
+    - Creator Email: Your Email.
     - Privacy Policy URL: Any policy or TOC URL for your app.
     - Documentation URL: A documentation website URL for your app.
-    - Is Application Active: set to "Active"
-    - Is Application Production or Testing: set to "Production"
-    - Application Visibility: set to "Public"
+    - Is Application Active: set to "Active".
+    - Is Application Production or Testing: set to "Production".
+    - Application Visibility: set to "Public".
 
 5. You need to create the 5 functions that are understood by this Django app.
     1. createitem(title, description): create a new todo item
@@ -63,7 +63,32 @@ python manage.py migrate
         - description [varchar]: new description for the todo item
     5. deleteitem(id: int): delete a todo item
         - id [int, required]: id of the todo item
-  
+
+```
+Example of how to create the function, createitem, which has two input arguments, title and description:
+
+1. Click on "Add New Function".
+2. Complete the form and click on "Create New Function":
+    - Display Name: Human readable name for this function. e.g. "Create a Todo Item"
+    - Invoke Name: A simple descriptive word for invoking this command. e.g. "createitem"
+    - Description: Description. e.g. "Add a new item to your todo list"
+    - Function Type: Set to "Command"
+    - Is Function Active: Set to "Yes"
+3. After creating a new function, you're at the function overview page, scroll down to the section for input arguments, and click on "Add New Input Arg".
+4. Add a new input argument, title, and click on "Save":
+    - Display Name: A simple description word for this argument. e.g. title
+    - Description: Describe the use for this argument. e.g. A title which summarizes this todo
+    - Type: The data type of this argument. e.g. varchar
+    - Required: Toggle it on.
+    - Input Example: A human readable example. e.g. Get Milk
+4. Add a new input argument, description, and click on "Save":
+    - Display Name: A simple description word for this argument. e.g. description
+    - Description: Describe the use for this argument. e.g. Details about the todo item
+    - Type: The data type of this argument. e.g. varchar
+    - Required: Toggle it off.
+    - Input Example: A human readable example. e.g. Get non-skimmed milk from Krogers at 4th Cross St.
+```
+
 ## Update variables and settings in the Django App
 
 6. Open up the file `yellowant_todoapp/settings.py`
