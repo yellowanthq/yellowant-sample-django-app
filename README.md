@@ -34,11 +34,14 @@ python manage.py migrate
 2. Click on the button "Create New Application"
 
 3. Fill the form and click on "Create Application":
+![YellowAnt Create New App](https://github.com/yellowanthq/yellowant-sample-django-app/blob/master/docs/yellowant-create-new-app.jpg "YellowAnt Create New App")
     - Display Name: A human readable display name for the application.
     - Invoke Name: A simple single word which users can use to control this app.
-    - Short Description: A human readable short description.
+    - Short Description: A human readable short description
 
 4. After the application is created you will be at the application overview page. You need update the application with more information and click on "Update Application".
+![YellowAnt Update App](https://github.com/yellowanthq/yellowant-sample-django-app/blob/master/docs/yellowant-app-overview-1.jpg "YellowAnt Update App")
+![YellowAnt Update App](https://github.com/yellowanthq/yellowant-sample-django-app/blob/master/docs/yellowant-app-overview-2.jpg "YellowAnt Update App")
     - API URL: The endpoint through which YellowAnt will communicate with this app.
     - Installation Website: The URL of your app where users will be able to begin integrating their YellowAnt accounts with this app.
     - Redirect URL: The endpoint at which YellowAnt will send the OAuth codes for user authentication.
@@ -64,6 +67,8 @@ python manage.py migrate
     5. deleteitem(id: int): delete a todo item
         - id [int, required]: id of the todo item
 
+![YellowAnt Create New Function](https://github.com/yellowanthq/yellowant-sample-django-app/blob/master/docs/yellowant-create-new-function.jpg "YellowAnt Create New Function")
+![YellowAnt Create New Input Arg](https://github.com/yellowanthq/yellowant-sample-django-app/blob/master/docs/yellowant-create-new-arg.jpg "YellowAnt Create New Input Arg")
 ```
 Example of how to create the function, createitem, which has two input arguments, title and description:
 
