@@ -11,7 +11,7 @@ def create_item(args, user_integration, message=None):
     # verify arguments
     title = args.get("title")
     description = args.get("description")
-    if title is None or description is None or len(title) == 0 or len(description) == 0:
+    if title is None or len(title) == 0:
         # inform the user that they have not provided valid arguments
         message.message_text = "You need to provide values for both `title` and `description` as arguments."
         return message
