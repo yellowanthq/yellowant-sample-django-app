@@ -38,6 +38,8 @@ class CommandCenter:
             message.message_text = "Sorry! I could not find that command."
             return message
         
+        # build YA message object
         message = self.command(self.args, self.user_integration)
 
+        # use inbuilt sdk method to_json to return message in a json format accepted by YA
         return message.to_json()
