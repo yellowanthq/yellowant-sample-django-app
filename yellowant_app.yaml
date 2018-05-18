@@ -1,0 +1,107 @@
+api_url: http://localhost:8000/yellowant-api/
+creator_email: manik@yellowant.com
+documentation_url: http://localhost:8000/
+functions:
+  createitem:
+    function_type: 1
+    input_args:
+      description:
+        arg_type: 14
+        description: The i of the issue
+        example: Leaving for an extended weekend plan to Goa
+        name: description
+        required: 0
+      title:
+        arg_type: 14
+        description: Title of the item
+        example: Email boss for sick leave
+        name: title
+        required: 1
+    invoke_name: createitem
+    is_active: 1
+    max_retries: 0
+    name: Create Item
+    output_keys: {}
+    privacy_mode: 0
+    rate_limited: 0
+    short_description: Add a todo item to the list
+    user_rate_limit: 0.0
+  deleteitem:
+    function_type: 1
+    input_args:
+      id:
+        arg_type: 1
+        description: ID of the item
+        example: '7'
+        name: id
+        required: 1
+    invoke_name: deleteitem
+    is_active: 1
+    max_retries: 0
+    name: Delete Item
+    output_keys: {}
+    privacy_mode: 0
+    rate_limited: 0
+    short_description: Delete a todo item from the list
+    user_rate_limit: 0.0
+  getlist:
+    function_type: 1
+    input_args: {}
+    invoke_name: getlist
+    is_active: 1
+    max_retries: 0
+    name: Get List
+    output_keys: {}
+    privacy_mode: 0
+    rate_limited: 0
+    short_description: Get the list of todo items
+    user_rate_limit: 0.0
+  updateitem:
+    function_type: 1
+    input_args:
+      description:
+        arg_type: 14
+        description: The description of the issue
+        example: Leaving for an extended weekend plan to Goa
+        name: description
+        required: 0
+      id:
+        arg_type: 1
+        description: ID of the item
+        example: '7'
+        name: id
+        required: 1
+      title:
+        arg_type: 14
+        description: Title of the item
+        example: Email boss for sick leave
+        name: title
+        required: 0
+    invoke_name: updateitem
+    is_active: 1
+    max_retries: 0
+    name: Update Item
+    output_keys: {}
+    privacy_mode: 0
+    rate_limited: 0
+    short_description: Update a todo item in the list
+    user_rate_limit: 0.0
+icon_url: https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png
+id: 79
+install_page_url: http://localhost:8000/
+invoke_name: todo2
+is_active: 1
+is_production_or_sandbox: 1
+long_description: A simple application to add, read, update and delete items from
+  a todo list
+name: Todo Sample App
+privacy_policy_url: http://localhost:8000/
+rate_limit: 0.0
+rate_limited: 0
+redirect_uris: http://localhost:8000/yellowant-oauth-redirect/
+short_description: GitHub is a web-based Git or version control repository and Internet
+  hosting service. It offers all of the distributed version control and source code
+  management functionality of Git as well as adding its own features.
+user_rate_limit: 0.0
+visibility_scope: 2
+website: http://localhost:8000/
