@@ -2,6 +2,10 @@
 
 Sample Django application for creating a Todo List Manager for YellowAnt
 
+## Zero Config Deploy to Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## Getting Started
 
 These instructions will get you started with deploying this YellowAnt application under 15 minutes.
