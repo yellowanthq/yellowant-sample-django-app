@@ -3,8 +3,10 @@ import os
 
 # fetch environment variables
 YA_DEVELOPER_TOKEN = os.environ.get("YA_DEVELOPER_TOKEN")
+HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
+
 # set website
-website = "https://{}.herokuapp.com/".format(base)
+website = "https://{}.herokuapp.com/".format(HEROKU_APP_NAME)
 
 
 os.system("yellowant auth --token {} --host https://www.yellowant.com ".format(YA_DEVELOPER_TOKEN))
