@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import json
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +28,7 @@ YA_OAUTH_URL = "https://www.yellowant.com/api/oauth2/authorize/"
 YA_REDIRECT_URL = "http://localhost:8000/yellowant-oauth-redirect/"
 
 # Numerical ID generated when you register your application through the YA developer console
-YA_APP_ID = os.environ.get("YA_APP_ID", 198)
+YA_APP_ID = credentials.get("application_id")
 # Client ID generated from the YA developer console. Required to identify requests from this application to YA
 YA_CLIENT_ID = credentials.get('client_id')
 # Client secret generated from the YA developer console. Required to identify requests from this application to YA
