@@ -3,4 +3,4 @@ django
 gunicorn
 psycopg2
 whitenoise
-yellowant==0.0.28
+yellowant
