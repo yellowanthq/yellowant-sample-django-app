@@ -1,0 +1,19 @@
+{
+    "name": "YellowAnt Sample Django App",
+    "description": "A simple todo list manager on YellowAnt.",
+    "repository": "https://github.com/yellowanthq/yellowant-sample-django-app",
+    "keywords": ["python3", "django2","yellowant"],
+    "env": {
+      "YA_DEVELOPER_TOKEN": {
+        "description": "YellowAnt Developer Token",
+        "required": true
+      },
+      "HEROKU_APP_NAME": {
+        "description": "Heroku App name",
+        "required": true
+      },
+      "DISABLE_COLLECTSTATIC": {
+        "required": true
+      }
+    }
+  }
