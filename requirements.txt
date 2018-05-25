@@ -1,2 +1,3 @@
-yellowant
 django
+whitenoise
+yellowant
