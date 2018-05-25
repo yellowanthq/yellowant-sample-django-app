@@ -1,3 +1,4 @@
 django
+gunicorn
 whitenoise
 yellowant==0.0.28
