@@ -16,6 +16,8 @@ import json
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+DJANGO_ENV= os.environ.get("DJANGO_ENV", "heroku")
+
 # get app credentials from json
 credentials = open('yellowant_app_credentials.json').read()
 credentials = json.loads(credentials)
@@ -105,12 +107,21 @@ WSGI_APPLICATION = 'yellowant_todoapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if DJANGO_ENV == "heroku":
+    import dj_database_url
+
+    DATABASES = {
+        'default': dj_database_url.config(
+            default='sqlite:////{0}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
+        )
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
