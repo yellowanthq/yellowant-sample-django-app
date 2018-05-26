@@ -88,7 +88,7 @@ functions:
     user_rate_limit: 0.0
 icon_url: https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png
 install_page_url: http://localhost:8000/
-invoke_name: todotest
+invoke_name: todo
 is_active: 1
 is_production_or_sandbox: 1
 long_description: A simple application to add, read, update and delete items from
