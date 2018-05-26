@@ -16,7 +16,7 @@ import json
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DJANGO_ENV= os.environ.get("DJANGO_ENV", "heroku")
+DJANGO_ENV = os.environ.get("DJANGO_ENV", "heroku")
 
 # get app credentials from json
 credentials = open('yellowant_app_credentials.json').read()
@@ -32,6 +32,8 @@ else:
 if DJANGO_ENV == "heroku":
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
     BASE_URL = f"https://{HEROKU_APP_NAME}.herokuapp.com"
+elif DJANGO_ENV == "remote":
+    BASE_URL = os.environ.get("YA_NGROK")
 else:
     BASE_URL = "http://localhost:8000"
 
