@@ -90,3 +90,6 @@ venv.bak/
 
 # visual studio code
 .vscode
+
+# yellowant
+yellowant_app_credentials.json
