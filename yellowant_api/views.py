@@ -31,9 +31,8 @@ def request_yellowant_oauth_code(request):
 
     # Redirect the application user to the YA authentication page. Note that we are passing state,
     # this app's client id, oauth response type as code, and the url to return the oauth2 code at.
-    return HttpResponseRedirect("{}?state={}&client_id={}\
-        &response_type=code&redirect_url={}".format(settings.YA_OAUTH_URL, state, \
-        settings.YA_CLIENT_ID, settings.YA_REDIRECT_URL))
+    return HttpResponseRedirect("{}?state={}&client_id={}&response_type=code&redirect_url={}"\
+        .format(settings.YA_OAUTH_URL, state, settings.YA_CLIENT_ID, settings.YA_REDIRECT_URL))
 
 
 def yellowant_oauth_redirect(request):
@@ -98,7 +97,10 @@ def yellowant_oauth_redirect(request):
 
 def yellowant_api(request):
     """Receive user commands from YA"""
-    data = json.loads(request.POST.get("data"))
+    try:
+        data = json.loads(request.POST.get("data"))
+    except TypeError:
+        data = json.loads(request.body)["data"]
 
     # verify whether the request is genuinely from YA with the help of the verification token
     if data["verification_token"] != settings.YA_VERIFICATION_TOKEN:
