@@ -1,3 +1,4 @@
+"""URLs to load web based views"""
 from django.urls import path
 
 from web.views import index, signup
