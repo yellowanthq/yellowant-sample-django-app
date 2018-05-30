@@ -1,3 +1,4 @@
+"""Urls for YellowAnt related API"""
 from django.urls import path
 
 from .views import request_yellowant_oauth_code, yellowant_oauth_redirect, yellowant_api
