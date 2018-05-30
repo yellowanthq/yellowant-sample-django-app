@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+"""Views for the web clients"""
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
@@ -7,6 +7,8 @@ from yellowant_api.models import UserIntegration
 
 
 def index(request):
+    """Display home page.
+    """
     context = {
         "user_integrations": []
     }
@@ -20,6 +22,8 @@ def index(request):
 
 
 def signup(request):
+    """Handle sign up and display sign up form.
+    """
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
