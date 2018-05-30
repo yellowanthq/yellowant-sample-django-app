@@ -109,5 +109,13 @@ Example of how to create the function, createitem, which has two input arguments
     - YA_CLIENT_SECRET: The `Client Secret`
     - YA_VERIFICATION_TOKEN: The `Verification Token`
 
-## Run the Django application server
-`python manage.py runserver`
+## Run the Django application server for local YellowAnt Server
+`DJANGO_ENV=development python manage.py runserver`
+
+## Run the Django application server with ngrok for YellowAnt web server
+`DJANGO_ENV=remote BASE_URL=http://some-ngrok-url.ngrok.io python manage.py runserver`
+
+IMPORTANT: Do not include trailing slash (/) from the YA_NGROK parameter url
+
+## Run the Django application server with Heroku for YellowAnt web server
+`DJANGO_ENV=heroku HEROKU_APP_NAME=heroku-app-name python manage.py runserver`
