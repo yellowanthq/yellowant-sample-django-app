@@ -16,6 +16,7 @@ class Todo(models.Model):
     def __str__(self):
         return self.title
 
+
 class UserTodo(models.Model):
     """Todo Owner Relationship
 
@@ -27,4 +28,4 @@ class UserTodo(models.Model):
     todo = models.ForeignKey(Todo, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "{} - {}".format(self.user.username, self.todo.title) #pylint: disable=no-member
+        return "{} - {}".format(self.user.username, self.todo.title)  # pylint: disable=no-member

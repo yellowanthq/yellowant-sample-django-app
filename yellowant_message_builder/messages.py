@@ -22,6 +22,7 @@ def items_message(todo_list, user_integration, message=None):
 
     return message
 
+
 def item_message(item, user_integration, message=None):
     """Build a YellowAnt message from a single todo item.
 

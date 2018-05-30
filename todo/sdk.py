@@ -11,6 +11,7 @@ class TodoSDK:
     Args:
         token (int): sdk auth token from the client. Right now user id is the same as the token.
     """
+
     def __init__(self, token):
         self.user = User.objects.get(id=token)
 
@@ -46,7 +47,7 @@ class TodoSDK:
 
         return list(map(model_to_dict, todo_list))
 
-    def get_item(self, id): #pylint: disable=invalid-name,redefined-builtin
+    def get_item(self, id):  # pylint: disable=invalid-name,redefined-builtin
         """Fetch a single todo item
 
         Args:
@@ -59,7 +60,7 @@ class TodoSDK:
 
         return model_to_dict(todo)
 
-    def update_item(self, id, title=None, description=None): #pylint: disable=invalid-name,redefined-builtin
+    def update_item(self, id, title=None, description=None):  # pylint: disable=invalid-name,redefined-builtin
         """Update a todo item
 
         Args:
@@ -78,7 +79,7 @@ class TodoSDK:
 
         return model_to_dict(todo)
 
-    def delete_item(self, id): #pylint: disable=invalid-name,redefined-builtin
+    def delete_item(self, id):  # pylint: disable=invalid-name,redefined-builtin
         """Delete a single todo item
 
         Args:

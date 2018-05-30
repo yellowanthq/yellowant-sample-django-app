@@ -34,7 +34,8 @@ class UserIntegration(models.Model):
     yellowant_user_id = models.IntegerField(null=False)
     yellowant_team_subdomain = models.CharField(max_length=256, null=False)
     yellowant_integration_id = models.IntegerField(unique=True, null=False)
-    yellowant_integration_invoke_name = models.CharField(max_length=256, null=False)
+    yellowant_integration_invoke_name = models.CharField(
+        max_length=256, null=False)
     yellowant_integration_token = models.CharField(max_length=2048, null=False)
 
 

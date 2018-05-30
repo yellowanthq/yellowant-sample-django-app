@@ -31,8 +31,8 @@ def request_yellowant_oauth_code(request):
 
     # Redirect the application user to the YA authentication page. Note that we are passing state,
     # this app's client id, oauth response type as code, and the url to return the oauth2 code at.
-    return HttpResponseRedirect("{}?state={}&client_id={}&response_type=code&redirect_url={}"\
-        .format(settings.YA_OAUTH_URL, state, settings.YA_CLIENT_ID, settings.YA_REDIRECT_URL))
+    return HttpResponseRedirect("{}?state={}&client_id={}&response_type=code&redirect_url={}"
+                                .format(settings.YA_OAUTH_URL, state, settings.YA_CLIENT_ID, settings.YA_REDIRECT_URL))
 
 
 def yellowant_oauth_redirect(request):
@@ -54,9 +54,8 @@ def yellowant_oauth_redirect(request):
     user = yellowant_redirect_state.user
 
     # initialize the YA SDK client with your application credentials
-    ya_client = YellowAnt(app_key=settings.YA_CLIENT_ID, app_secret=settings.YA_CLIENT_SECRET, \
-        access_token=None, redirect_uri=settings.YA_REDIRECT_URL)
-
+    ya_client = YellowAnt(app_key=settings.YA_CLIENT_ID, app_secret=settings.YA_CLIENT_SECRET,
+                          access_token=None, redirect_uri=settings.YA_REDIRECT_URL)
 
     # get the access token for a user integration from YA against the code
     access_token_dict = ya_client.get_access_token(code)
@@ -120,7 +119,8 @@ def yellowant_api(request):
         args = data.get("args")
 
         # create a YA Message object with the help of the YA SDK
-        message = CommandCenter(yellowant_integration_id, command_name, args).parse()
+        message = CommandCenter(yellowant_integration_id,
+                                command_name, args).parse()
 
         # return YA Message object back to YA
         return HttpResponse(message)
