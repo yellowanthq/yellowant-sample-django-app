@@ -26,20 +26,20 @@ credentials = json.loads(credentials)
 # URL to obtain oauth2 access for a YA user
 if DJANGO_ENV == "development":
     YA_OAUTH_URL = "http://www.spendse.com/api/oauth2/authorize/"
+    os.environ["YELLOWANT_API_URL"] = "http://api.spendse.com/api/%s"
+    os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = "1"
 else:
     YA_OAUTH_URL = "https://www.yellowant.com/api/oauth2/authorize/"
 
 if DJANGO_ENV == "heroku":
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
-    BASE_URL = f"https://{HEROKU_APP_NAME}.herokuapp.com"
-elif DJANGO_ENV == "remote":
-    BASE_URL = os.environ.get("YA_NGROK")
+    BASE_URL = "https://{}.herokuapp.com".format(HEROKU_APP_NAME)
 else:
-    BASE_URL = "http://localhost:8000"
+    BASE_URL = os.environ.get("BASE_URL", "http://localhost:8000")
 
 # URL to receive oauth2 codes from YA for user authentication. As a developer, you need to provide this URL in the YA
 # developer console so that YA knows exactly where to send the oauth2 codes.
-YA_REDIRECT_URL = f"{BASE_URL}/yellowant-oauth-redirect/"
+YA_REDIRECT_URL = "{}/yellowant-oauth-redirect/".format(BASE_URL)
 
 # Numerical ID generated when you register your application through the YA developer console
 YA_APP_ID = credentials.get("application_id", None)
