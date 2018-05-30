@@ -19,8 +19,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DJANGO_ENV = os.environ.get("DJANGO_ENV", "heroku")
 
 # get app credentials from json
-credentials = open('yellowant_app_credentials.json').read()
-credentials = json.loads(credentials)
+CREDENTIALS = open('yellowant_app_credentials.json').read()
+CREDENTIALS = json.loads(CREDENTIALS)
 
 ### YellowAnt specific settings ###
 # URL to obtain oauth2 access for a YA user
@@ -42,14 +42,14 @@ else:
 YA_REDIRECT_URL = "{}/yellowant-oauth-redirect/".format(BASE_URL)
 
 # Numerical ID generated when you register your application through the YA developer console
-YA_APP_ID = credentials.get("application_id", None)
+YA_APP_ID = CREDENTIALS.get("application_id", None)
 # Client ID generated from the YA developer console. Required to identify requests from this application to YA
-YA_CLIENT_ID = credentials.get('client_id')
+YA_CLIENT_ID = CREDENTIALS.get('client_id')
 # Client secret generated from the YA developer console. Required to identify requests from this application to YA
-YA_CLIENT_SECRET = credentials.get('client_secret')
+YA_CLIENT_SECRET = CREDENTIALS.get('client_secret')
 # Verification token generated from the YA developer console. This application can verify requests from YA as they will
 # carry the verification token
-YA_VERIFICATION_TOKEN = credentials.get('verification_token')
+YA_VERIFICATION_TOKEN = CREDENTIALS.get('verification_token')
 
 ### END YellowAnt specific settings ###
 

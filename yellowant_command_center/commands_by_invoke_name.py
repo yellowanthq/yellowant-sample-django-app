@@ -2,7 +2,7 @@
 from .commands import create_item, get_list, get_item, update_item, delete_item
 
 
-commands_by_invoke_name = {
+COMMANDS_BY_INVOKE_NAME = {
     "createitem": create_item,
     "getlist": get_list,
     "getitem": get_item,

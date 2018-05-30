@@ -1,10 +1,10 @@
-"""This file contains the logic to understand a user message request from YA and return a response in the format of 
+"""This file contains the logic to understand a user message request from YA and return a response in the format of
 a YA message object accordingly
 """
 from yellowant.messageformat import MessageClass
 
 from yellowant_api.models import UserIntegration
-from .commands_by_invoke_name import commands_by_invoke_name
+from .commands_by_invoke_name import COMMANDS_BY_INVOKE_NAME
 
 
 class CommandCenter:
@@ -27,7 +27,7 @@ class CommandCenter:
         except UserIntegration.DoesNotExist:
             self.user_integration = None
 
-        self.command = commands_by_invoke_name.get(self.command_name)
+        self.command = COMMANDS_BY_INVOKE_NAME.get(self.command_name)
 
     def parse(self):
         message = MessageClass()
