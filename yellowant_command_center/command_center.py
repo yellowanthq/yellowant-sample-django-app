@@ -7,7 +7,7 @@ from yellowant_api.models import UserIntegration
 from .commands_by_invoke_name import COMMANDS_BY_INVOKE_NAME
 
 
-class CommandCenter:
+class CommandCenter: #pylint: disable=too-few-public-methods
     """Handles user commands
 
     Args:
@@ -30,6 +30,10 @@ class CommandCenter:
         self.command = COMMANDS_BY_INVOKE_NAME.get(self.command_name)
 
     def parse(self):
+        """Parse a user command to execute logic
+
+        Handle the inputs from YellowAnt to execute logic which returns a YellowAnt message as a reply.
+        """
         message = MessageClass()
 
         if self.yellowant_integration_id is None:
